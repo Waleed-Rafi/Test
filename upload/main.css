@@ -1,0 +1,16 @@
+.container {
+  width: 800px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#display_image {
+  width: 700px;
+  height: 400px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: 0.5px dotted gray;
+}
