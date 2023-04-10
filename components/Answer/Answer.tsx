@@ -3,7 +3,7 @@ import styles from "./answer.module.css";
 
 interface AnswerProps {
   text: string;
-  userChat: Array<ChatInterface>;
+  userChat: any;
 }
 
 interface ChatInterface {
@@ -12,7 +12,7 @@ interface ChatInterface {
 }
 
 export const Answer: React.FC<AnswerProps> = ({ text, userChat }) => {
-  const containerRef = useRef(null);
+  const containerRef = useRef<any>(null);
   const [words, setWords] = useState<string[]>([]);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export const Answer: React.FC<AnswerProps> = ({ text, userChat }) => {
           {word}{" "}
         </span>
       ))} */}
-      {userChat.map((word, index) => (
+      {userChat.map((word: any, index: any) => (
         <div
           key={index}
           style={{

@@ -23,7 +23,7 @@ export default function Home() {
   const [mode, setMode] = useState<"search" | "chat">("chat");
   const [matchCount, setMatchCount] = useState<number>(5);
   const [apiKey, setApiKey] = useState<string>(
-    "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"
+    "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"
   );
   const [userChat, setUserChat] = useState<Object[]>([]);
 
@@ -195,7 +195,7 @@ export default function Home() {
     const PG_MODE = localStorage.getItem("PG_MODE");
 
     if (PG_KEY) {
-      setApiKey("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");
+      setApiKey("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");
     }
 
     if (PG_MATCH_COUNT) {
@@ -288,9 +288,11 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="mt-6">
+            <div className="mt-6" style={{ width: "100%" }}>
               {/* <div className="font-bold text-2xl mb-2">Answer</div> */}
-              <Answer text={answer} userChat={userChat} />
+              {userChat.length ? (
+                <Answer text={answer} userChat={userChat} />
+              ) : null}
             </div>
 
             {
