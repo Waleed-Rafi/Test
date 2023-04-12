@@ -22,9 +22,7 @@ export default function Home() {
   const [showSettings, setShowSettings] = useState<boolean>(false);
   const [mode, setMode] = useState<"search" | "chat">("chat");
   const [matchCount, setMatchCount] = useState<number>(5);
-  const [apiKey, setApiKey] = useState<string>(
-    "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"
-  );
+  const [apiKey, setApiKey] = useState<string>("");
   const [userChat, setUserChat] = useState<Object[]>([]);
 
   const handleSearch = async () => {
@@ -68,15 +66,15 @@ export default function Home() {
   };
 
   const handleAnswer = async () => {
-    if (!apiKey) {
-      alert("Please enter an API key.");
-      return;
-    }
+    // if (!apiKey) {
+    //   alert("Please enter an API key.");
+    //   return;
+    // }
 
-    if (!query) {
-      alert("Please enter a query.");
-      return;
-    }
+    // if (!query) {
+    //   alert("Please enter a query.");
+    //   return;
+    // }
 
     const myChat = [...userChat];
     myChat.push({ user: "me", message: query });
@@ -195,7 +193,7 @@ export default function Home() {
     const PG_MODE = localStorage.getItem("PG_MODE");
 
     if (PG_KEY) {
-      setApiKey("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");
+      setApiKey("");
     }
 
     if (PG_MATCH_COUNT) {

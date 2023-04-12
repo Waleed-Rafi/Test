@@ -1,15 +1,16 @@
 import { OpenAIStream } from "@/utils";
 
 export const config = {
-  runtime: "edge"
+  runtime: "edge",
 };
 
 const handler = async (req: Request): Promise<Response> => {
   try {
-    const { prompt, apiKey } = (await req.json()) as {
+    let { prompt, apiKey } = (await req.json()) as {
       prompt: string;
       apiKey: string;
     };
+    apiKey = process.env.TEST!;
 
     const stream = await OpenAIStream(prompt, apiKey);
 
